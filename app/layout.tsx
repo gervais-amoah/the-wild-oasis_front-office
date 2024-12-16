@@ -3,6 +3,14 @@ import Navigations from '@/components/Navigations';
 import { ClickProvider } from '@/context/counter';
 import '@/styles/globals.css';
 
+import { Josefin_Sans } from 'next/font/google';
+
+const josefin = Josefin_Sans({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
 export const metadata = {
   title: {
     default: 'Welcome | The Wild Oasis',
@@ -19,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-primary-950 text-primary-100 min-h-screen">
+      <body
+        className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen`}
+      >
         <ClickProvider>
           <header>
             <Logo />
