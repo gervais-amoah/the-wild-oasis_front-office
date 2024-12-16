@@ -1,12 +1,10 @@
-import Logo from '@/components/Logo';
-import Navigations from '@/components/Navigations';
-import { ClickProvider } from '@/context/counter';
+import Header from '@/components/Header';
 import '@/styles/globals.css';
 
 import { Josefin_Sans } from 'next/font/google';
 
 const josefin = Josefin_Sans({
-  weight: ['400', '500', '600', '700'],
+  weight: '400',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -28,15 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen`}
+        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}
       >
-        <ClickProvider>
-          <header>
-            <Logo />
-            <Navigations />
-          </header>
-          <main>{children}</main>
-        </ClickProvider>
+        <Header />
+        <div className="flex-1 px-8 py-12">
+          <main className="max-w-7xl mx-auto">{children}</main>
+        </div>
       </body>
     </html>
   );
