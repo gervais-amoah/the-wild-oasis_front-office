@@ -7,7 +7,7 @@ import React from 'react';
 export default function Navigations() {
   const { clickCount } = useClickContext();
   return (
-    <ul>
+    <ul className="flex gap-4">
       <li>
         <Link href="/">Home</Link>
       </li>
