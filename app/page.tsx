@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Hello world!</h1>;
+  return (
+    <div>
+      <h1>The Wild Oasis - Welcome to Paradise !</h1>
+    </div>
+  );
 }
