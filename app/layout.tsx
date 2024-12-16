@@ -4,8 +4,12 @@ import { ClickProvider } from '@/context/counter';
 import '@/styles/globals.css';
 
 export const metadata = {
-  title: 'The Wild Oasis',
-  description: 'Welcome to Paradise !',
+  title: {
+    default: 'Welcome | The Wild Oasis',
+    template: '%s | The Wild Oasis',
+  },
+  description:
+    'Luxury cabin hotel, located in the heart of the African continent.',
 };
 
 export default function RootLayout({
