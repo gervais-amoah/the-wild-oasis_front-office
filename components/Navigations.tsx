@@ -1,7 +1,11 @@
+'use client';
+
+import { useClickContext } from '@/context/counter';
 import Link from 'next/link';
 import React from 'react';
 
 export default function Navigations() {
+  const { clickCount } = useClickContext();
   return (
     <ul>
       <li>
@@ -16,6 +20,7 @@ export default function Navigations() {
       <li>
         <Link href="/account">Account</Link>
       </li>
+      <li>Counter: {clickCount}</li>
     </ul>
   );
 }

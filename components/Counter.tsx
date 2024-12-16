@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useClickContext } from '@/context/counter';
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const { clickCount, incrementClick } = useClickContext();
+
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <p>Button clicked: {clickCount} times</p>
+      <button onClick={incrementClick}>Click Me</button>
     </div>
   );
 }
