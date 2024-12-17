@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import image1 from '@/public/about-1.jpg';
-import image2 from '@/public/about-2.jpg';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'About',
@@ -48,7 +47,7 @@ export default function AboutPage() {
 
       <div className="relative aspect-square col-span-2">
         <Image
-          src={image2}
+          src="/about-2.jpg"
           fill
           className="object-cover"
           alt="Family that manages The Wild Oasis"
@@ -57,7 +56,7 @@ export default function AboutPage() {
 
       <div className="col-span-3">
         <h1 className="text-4xl mb-10 text-accent-400 font-medium">
-          Managed by our family since 1962
+          Managed by our family since 1997
         </h1>
 
         <div className="space-y-8">
