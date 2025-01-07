@@ -1,6 +1,11 @@
 'use client';
 
-export default function ErrorPage({ error, reset }) {
+interface ErrorProps {
+  error: Error;
+  reset: () => void;
+}
+
+export default function ErrorPage({ error, reset }: ErrorProps) {
   console.error(error?.message);
   return (
     <main className="flex flex-col items-center justify-center gap-6">
