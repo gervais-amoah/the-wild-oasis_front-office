@@ -2,7 +2,23 @@ import Image from 'next/image';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import { getCabin } from '@/lib/data-service';
 
-export default async function CabinDetailsPage({ params }) {
+export async function generateMetadata({ params }: CabinDetailsPageProps) {
+  const { cabinID } = params;
+  const { name, description } = await getCabin(cabinID);
+  return {
+    title: `Cabin ${name}`,
+    description,
+  };
+}
+
+interface CabinDetailsPageProps {
+  params: {
+    cabinID: string;
+  };
+}
+export default async function CabinDetailsPage({
+  params,
+}: CabinDetailsPageProps) {
   const { cabinID } = params;
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     await getCabin(cabinID);
@@ -13,6 +29,7 @@ export default async function CabinDetailsPage({ params }) {
         <Image
           src={image}
           fill
+          sizes="100%"
           className="object-cover"
           alt={`Cabin ${name}`}
         />
@@ -20,12 +37,10 @@ export default async function CabinDetailsPage({ params }) {
 
       <div>
         <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
-          Cabin {name}
+          {name}
         </h3>
 
-        <p className="text-lg text-primary-300 mb-10">
-          <p>{description}</p>
-        </p>
+        <p className="text-lg text-primary-300 mb-10">{description}</p>
 
         <ul className="flex flex-col gap-4 mb-7">
           <li className="flex gap-3 items-center">

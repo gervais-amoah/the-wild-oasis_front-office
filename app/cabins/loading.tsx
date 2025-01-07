@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="grid items-center justify-center h-full">
       <div className=" mb-[8rem]">
         <Spinner />
-        <p className="text-xl text-primary-200">Loading cabins...</p>
+        <p className="text-xl text-primary-200">Loading cabin data...</p>
       </div>
     </div>
   );
