@@ -49,6 +49,7 @@ export default function AboutPage() {
         <Image
           src="/about-2.jpg"
           fill
+          sizes="100%"
           className="object-cover"
           alt="Family that manages The Wild Oasis"
         />
