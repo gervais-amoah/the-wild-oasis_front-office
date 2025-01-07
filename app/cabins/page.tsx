@@ -1,5 +1,6 @@
-import CabinCard from '@/components/CabinCard';
-import { getCabins } from '@/lib/data-service';
+import { Suspense } from 'react';
+import Loading from './loading';
+import CabinList from '@/components/CabinList';
 
 export const metadata = {
   title: 'Cabins',
@@ -7,8 +8,6 @@ export const metadata = {
 };
 
 export default async function CabinsPage() {
-  const cabins = await getCabins();
-
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -23,13 +22,9 @@ export default async function CabinsPage() {
         Welcome to paradise.
       </p>
 
-      {cabins.length > 0 && (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
-            <CabinCard key={cabin.id} cabin={cabin} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<Loading />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
