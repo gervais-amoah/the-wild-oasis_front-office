@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import CabinList from '@/components/CabinList';
 
+export const revalidate = 2592000; // 30 days in seconds
+
 export const metadata = {
   title: 'Cabins',
   description: 'Cabins page',
