@@ -1,12 +1,16 @@
 import image1 from '@/public/about-1.jpg';
 import Image from 'next/image';
+import CabinsLength from './CabinsLength';
+import { Suspense } from 'react';
+
+export const revalidate = 0; // 1 hour in seconds
 
 export const metadata = {
   title: 'About',
   description: 'About The Wild Oasis',
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
       <div className="col-span-3">
@@ -23,10 +27,14 @@ export default function AboutPage() {
             and enjoying simple pleasures with family.
           </p>
           <p>
-            Our 8 luxury cabins provide a cozy base, but the real freedom and
-            peace you&apos;ll find in the surrounding mountains. Wander through
-            lush forests, breathe in the fresh air, and watch the stars twinkle
-            above from the warmth of a campfire or your hot tub.
+            Our{' '}
+            <Suspense fallback={<span> </span>}>
+              <CabinsLength />
+            </Suspense>{' '}
+            luxury cabins provide a cozy base, but the real freedom and peace
+            you&apos;ll find in the surrounding mountains. Wander through lush
+            forests, breathe in the fresh air, and watch the stars twinkle above
+            from the warmth of a campfire or your hot tub.
           </p>
           <p>
             This is where memorable moments are made, surrounded by
